@@ -15,6 +15,8 @@ from matplotlib import pyplot
 import random
 from math import sqrt
 from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_absolute_error
+
 
 # La librería statsmodel tiene implementaciones de SARIMA y de Holt-Winters
 from statsmodels.tsa.statespace.sarimax import SARIMAX
@@ -35,6 +37,10 @@ def division_entreno_prueba(datos, n_prueba):
 
 def medir_rmse(actual, predicho):
     return sqrt(mean_squared_error(actual, predicho))
+
+def medir_mae(actual, predicho):
+    return mean_absolute_error(actual, predicho)
+
 
 # validación "walk-forward" para datos univariados
 def validacion_al_frente(datos, n_prueba, metodo, cfg):
